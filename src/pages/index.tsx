@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Text } from '../components';
+import { Heading, Tag, Text } from '../components';
 
 const Index = () => {
   return (
@@ -11,6 +11,18 @@ const Index = () => {
       <Text size="s">Text</Text>
       <Text size="m">Text</Text>
       <Text size="l">Text</Text>
+      <hr />
+      <Tag size="s">Tag</Tag>
+      <Tag size="m">Tag</Tag>
+      <Tag size="m" color="green">
+        Tag
+      </Tag>
+      <Tag size="m" color="primary">
+        Tag
+      </Tag>
+      <Tag size="m" color="red">
+        Tag
+      </Tag>
     </div>
   );
 };
