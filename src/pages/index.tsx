@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Heading, Input, Tag, Text } from '../components';
+import { Button, Heading, Input, Tag, Text, TextArea } from '../components';
 
 const Index = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -39,6 +39,8 @@ const Index = () => {
       </Button>
       <hr />
       <Input className="gray" placeholder="Enter" />
+      <hr />
+      <TextArea placeholder="Message" />
     </div>
   );
 };
