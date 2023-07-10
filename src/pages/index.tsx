@@ -1,7 +1,8 @@
-import React from 'react';
-import { Heading, Tag, Text } from '../components';
+import React, { useState } from 'react';
+import { Button, Heading, Tag, Text } from '../components';
 
 const Index = () => {
+  const [isClicked, setIsClicked] = useState(false);
   return (
     <div>
       <Heading tag="h1">Heading</Heading>
@@ -23,6 +24,19 @@ const Index = () => {
       <Tag size="m" color="red">
         Tag
       </Tag>
+      <hr />
+      <Button appearance="primary">Button</Button>
+      <Button appearance="ghost">Button</Button>
+      <Button appearance="ghost" arrow="right">
+        Button
+      </Button>
+      <Button
+        appearance="primary"
+        arrow={isClicked ? 'down' : 'right'}
+        onClick={() => setIsClicked((prev) => !prev)}
+      >
+        Button
+      </Button>
     </div>
   );
 };
