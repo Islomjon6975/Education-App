@@ -1,4 +1,4 @@
-import { TagPropgs } from './tag.props';
+import { TagProps } from './tag.props';
 import styles from './tag.module.css';
 import cn from 'classnames';
 
@@ -7,7 +7,7 @@ const Tag = ({
   color = 'primary',
   children,
   ...props
-}: TagPropgs): JSX.Element => {
+}: TagProps): JSX.Element => {
   return (
     <div
       className={cn(styles.tag, {

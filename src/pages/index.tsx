@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { Button, Heading, Input, Tag, Text, TextArea } from '../components';
+import {
+  Button,
+  Card,
+  Heading,
+  Input,
+  Tag,
+  Text,
+  TextArea,
+} from '../components';
 
 const Index = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -41,6 +49,9 @@ const Index = () => {
       <Input className="gray" placeholder="Enter" />
       <hr />
       <TextArea placeholder="Message" />
+      <hr />
+      <Card color="white">Card</Card>
+      <Card color="primary">Card</Card>
     </div>
   );
 };
