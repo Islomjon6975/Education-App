@@ -9,13 +9,16 @@ import {
   TextArea,
 } from '../components';
 import Rating from '../components/rating/rating';
+import { GetServerSideProps } from 'next';
+import axios from 'axios';
+import { withLayout } from '../layout/layout';
 
 const Index = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [rating, setRating] = useState<number>(4);
 
   return (
-    <div>
+    <>
       <Heading tag="h1">Heading</Heading>
       <Heading tag="h2">Heading</Heading>
       <Heading tag="h3">Heading</Heading>
@@ -58,8 +61,20 @@ const Index = () => {
       <hr />
       <Rating rating={rating} setRating={setRating} isEditable={true} />
       <Rating rating={1} />
-    </div>
+    </>
   );
 };
 
-export default Index;
+export default withLayout(Index);
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const { data } = await axios.post('http://localhost:8100/page-find', {
+    firstCategory: 0,
+  });
+
+  return {
+    props: {
+      data,
+    },
+  };
+};
