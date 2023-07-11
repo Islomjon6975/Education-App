@@ -8,9 +8,12 @@ import {
   Text,
   TextArea,
 } from '../components';
+import Rating from '../components/rating/rating';
 
 const Index = () => {
   const [isClicked, setIsClicked] = useState(false);
+  const [rating, setRating] = useState<number>(4);
+
   return (
     <div>
       <Heading tag="h1">Heading</Heading>
@@ -52,6 +55,9 @@ const Index = () => {
       <hr />
       <Card color="white">Card</Card>
       <Card color="primary">Card</Card>
+      <hr />
+      <Rating rating={rating} setRating={setRating} isEditable={true} />
+      <Rating rating={1} />
     </div>
   );
 };
