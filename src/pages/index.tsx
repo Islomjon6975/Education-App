@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import { useState } from 'react';
+import { GetServerSideProps } from 'next';
+
 import {
   Button,
   Card,
@@ -9,11 +12,10 @@ import {
   TextArea,
 } from '../components';
 import Rating from '../components/rating/rating';
-import { GetServerSideProps } from 'next';
-import axios from 'axios';
 import { withLayout } from '../layout/layout';
+import { MenuItem } from '../interfaces/menu.interface';
 
-const Index = () => {
+const Index = ({ firstCategory, menu }: HomeProps): JSX.Element => {
   const [isClicked, setIsClicked] = useState(false);
   const [rating, setRating] = useState<number>(4);
 
@@ -67,17 +69,24 @@ const Index = () => {
 
 export default withLayout(Index);
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const { data } = await axios.post(
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+  const firstCategory = 0;
+  const { data: menu } = await axios.post<MenuItem[]>(
     `${process.env.NEXT_PUBLIC_DOMAIN}/api/page-find`,
     {
-      firstCategory: 0,
+      firstCategory,
     }
   );
 
   return {
     props: {
-      data,
+      menu,
+      firstCategory,
     },
   };
 };
+
+interface HomeProps extends Record<string, unknown> {
+  firstCategory: number;
+  menu: MenuItem[];
+}
