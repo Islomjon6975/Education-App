@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
+import cn from 'classnames';
+import { useContext } from 'react';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+
+import styles from './menu.module.css';
 import { AppContext } from '../../context/app.context';
 import { firstLevelMenu } from '../../helpers/constants';
-import Link from 'next/link';
-import styles from './menu.module.css';
-import cn from 'classnames';
 import { IFirstLevelMenu, PageItem } from '../../interfaces/menu.interface';
-import { useRouter } from 'next/router';
 
 const Menu = (): JSX.Element => {
   const { menu, firstCategory, setMenu } = useContext(AppContext);
@@ -78,17 +79,20 @@ const Menu = (): JSX.Element => {
   };
 
   const buildThirdLevel = (pages: PageItem[], route: string) => {
-    return pages?.map((p) => (
-      <Link
-        key={p._id}
-        href={`/${route}/${p.alias}`}
-        className={cn(styles.thirdLevel, {
-          [styles.thirdLevelActive]: `/${route}/${p.alias}` === router.asPath,
-        })}
-      >
-        {p.title}
-      </Link>
-    ));
+    return pages.map((p) => {
+      return (
+        <Link
+          key={p._id}
+          href={`/${route}/${p._id}`}
+          className={cn(styles.thirdLevel, {
+            [styles.thirdLevelActive]: `/${route}/${p._id}` === router.asPath,
+          })}
+          onClick={() => console.log(`/${route}/${p._id}`)}
+        >
+          {p.title}
+        </Link>
+      );
+    });
   };
 
   return <div className={styles.menu}>{buildFirstLevel()}</div>;

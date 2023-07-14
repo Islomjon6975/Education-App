@@ -55,12 +55,24 @@
 .thirdLevel {
   display: block;
   margin-bottom: 10px;
+  margin-left: 20px;
+  padding: 5px;
+  z-index: 9;
+  position: relative;
 
   cursor: pointer;
   color: var(--gray-light);
   font-weight: 500;
   font-size: 14px;
   line-height: 19px;
+}
+
+.thirdLevel::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  border: 1px dashed rgba(0, 0, 0, 0.1);
 }
 
 .thirdLevelActive,

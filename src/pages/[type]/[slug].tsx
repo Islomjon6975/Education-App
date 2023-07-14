@@ -5,31 +5,32 @@ import { withLayout } from '../../layout/layout';
 import { MenuItem } from '../../interfaces/menu.interface';
 import { ProductModel } from '../../interfaces/product.interface';
 import { PageModel } from '../../interfaces/page.interface';
+import { firstLevelMenu } from '../../helpers/constants';
 
-const Course = ({ menu, page, products }: PageProps): JSX.Element => {
-  return <div>Course</div>;
+const Index = ({ products }: PageProps): JSX.Element => {
+  return <div>Index, {products.length}</div>;
 };
 
-export default withLayout(Course);
+export default withLayout(Index);
 
 export const getServerSideProps: GetServerSideProps<PageProps> = async ({
   query,
 }) => {
-  const { slug } = query;
+  const { type, slug } = query;
   const firstCategory = 0;
 
   if (!slug) {
     return { notFound: true };
   }
 
+  const firstCategoryItem = firstLevelMenu.find((c) => c.route === type);
+
   const { data: menu } = await axios.post<MenuItem[]>(
     `${process.env.NEXT_PUBLIC_DOMAIN}/api/page-find`,
-    {
-      firstCategory,
-    }
+    { firstCategory: firstCategoryItem.id }
   );
 
-  const { data: page } = await axios.post<PageModel[]>(
+  const { data: page } = await axios.get<PageModel[]>(
     `${process.env.NEXT_PUBLIC_DOMAIN}/api/page-find/${slug}`
   );
 
@@ -41,7 +42,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async ({
   );
 
   return {
-    props: { menu, page, products },
+    props: { menu, page, products, firstCategory: firstCategoryItem.id },
   };
 };
 
@@ -49,4 +50,5 @@ interface PageProps extends Record<string, unknown> {
   menu: MenuItem[];
   page: PageModel[];
   products: ProductModel[];
+  firstCategory: number;
 }
