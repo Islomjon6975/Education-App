@@ -6,3 +6,4 @@ export { default as Input } from './input/input';
 export { default as TextArea } from './text-area/text-area';
 export { default as Card } from './card/card';
 export { default as rating } from './rating/rating';
+export { default as divider } from './divider/divider';
