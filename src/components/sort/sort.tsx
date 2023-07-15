@@ -5,7 +5,7 @@ import styles from './sort.module.css';
 import SortIcon from './sort.svg';
 
 const Sort = ({
-  sort = SortEnum.Rating,
+  sort,
   setSort,
   className,
   ...props
@@ -16,6 +16,7 @@ const Sort = ({
         className={cn({
           [styles.active]: sort === SortEnum.Rating,
         })}
+        onClick={() => setSort(SortEnum.Rating)}
       >
         <SortIcon className={styles.sortIcon} /> Rating
       </span>
@@ -23,6 +24,7 @@ const Sort = ({
         className={cn({
           [styles.active]: sort === SortEnum.Price,
         })}
+        onClick={() => setSort(SortEnum.Price)}
       >
         <SortIcon className={styles.sortIcon} /> Price
       </span>
