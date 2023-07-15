@@ -5,5 +5,6 @@ export { default as Button } from './button/button';
 export { default as Input } from './input/input';
 export { default as TextArea } from './text-area/text-area';
 export { default as Card } from './card/card';
-export { default as rating } from './rating/rating';
-export { default as divider } from './divider/divider';
+export { default as Rating } from './rating/rating';
+export { default as Divider } from './divider/divider';
+export { default as HhData } from './hh-data/hh-data';

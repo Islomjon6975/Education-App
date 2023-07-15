@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 const Card = ({
   children,
-  color,
+  color = 'primary',
   className,
   ...props
 }: CardProps): JSX.Element => {
