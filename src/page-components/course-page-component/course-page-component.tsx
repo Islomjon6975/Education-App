@@ -2,7 +2,7 @@ import cn from 'classnames';
 
 import { CoursePageComponentProps } from './course-page-component.props';
 import styles from './course-page-component.module.css';
-import { Heading, HhData, Tag } from '../../components';
+import { Advantages, Heading, HhData, Tag, Text } from '../../components';
 
 const CoursePageComponent = ({
   firstCategory,
@@ -30,6 +30,26 @@ const CoursePageComponent = ({
 
       {/* HHDATA */}
       {page?.hh && <HhData {...page.hh} />}
+
+      {/* ADVANTAGES */}
+      {page?.advantages && page?.advantages?.length && (
+        <>
+          <Heading tag="h2">Advantages</Heading>
+          <Advantages advantages={page.advantages} />
+        </>
+      )}
+
+      {/* DESCRIPTION */}
+      <Text>{page?.description}</Text>
+
+      {/* SKILLS */}
+      <Heading tag="h2">Skills</Heading>
+      {page?.tags.length &&
+        page.tags.map((t) => (
+          <Tag key={t} color="primary">
+            {t}
+          </Tag>
+        ))}
     </div>
   );
 };
