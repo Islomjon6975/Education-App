@@ -1,11 +1,15 @@
-import cn from 'classnames';
-
 import { CoursePageComponentProps } from './course-page-component.props';
 import styles from './course-page-component.module.css';
-import { Advantages, Heading, HhData, Tag, Text } from '../../components';
+import {
+  Advantages,
+  Heading,
+  HhData,
+  Product,
+  Tag,
+  Text,
+} from '../../components';
 
 const CoursePageComponent = ({
-  firstCategory,
   page,
   products,
 }: CoursePageComponentProps): JSX.Element => {
@@ -18,7 +22,12 @@ const CoursePageComponent = ({
       </div>
 
       {/* PRODUCTS */}
-      <div>PRODUCTS</div>
+      <div>
+        {products &&
+          products.map((product, index) => (
+            <Product key={index} product={product} />
+          ))}
+      </div>
 
       {/* VACATIONS */}
       <div className={styles.hhTitle}>
