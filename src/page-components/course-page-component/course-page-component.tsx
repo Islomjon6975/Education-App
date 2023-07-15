@@ -5,6 +5,7 @@ import {
   Heading,
   HhData,
   Product,
+  Sort,
   Tag,
   Text,
 } from '../../components';
@@ -18,7 +19,7 @@ const CoursePageComponent = ({
       {/*  TITLE */}
       <div className={styles.title}>
         <Heading tag="h1">{page?.title}</Heading>
-        <div>Sort</div>
+        <Sort />
       </div>
 
       {/* PRODUCTS */}
