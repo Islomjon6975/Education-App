@@ -45,12 +45,16 @@
 }
 
 .secondLevelBlock {
+  overflow: hidden;
+}
+
+/* .secondLevelBlock {
   display: none;
 }
 
 .secondLevelBlockActive {
   display: block;
-}
+} */
 
 .thirdLevel {
   display: block;
