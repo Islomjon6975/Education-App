@@ -7,6 +7,7 @@ import { IconButton } from '../../components';
 import styles from './header.module.css';
 import LogoIcon from '../logo.svg';
 import Sidebar from '../sidebar/sidebar';
+import Link from 'next/link';
 
 const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -29,7 +30,9 @@ const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
 
   return (
     <div className={cn(className, styles.header)} {...props}>
-      <LogoIcon />
+      <Link href="/">
+        <LogoIcon />
+      </Link>
       <IconButton icon="menu" appearance="white" onClick={toggleMenu} />
       <motion.div
         variants={variants}
