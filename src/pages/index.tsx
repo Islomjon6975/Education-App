@@ -3,9 +3,14 @@ import { withLayout } from '../layout/layout';
 import { HomePageComponent } from '../page-components';
 import { MenuItem } from '../interfaces/menu.interface';
 import axios from 'axios';
+import Seo from '../layout/seo/seo';
 
 const Index = (): JSX.Element => {
-  return <HomePageComponent />;
+  return (
+    <Seo>
+      <HomePageComponent />
+    </Seo>
+  );
 };
 
 export default withLayout(Index);
