@@ -42,8 +42,6 @@ const ReviewForm = ({
         setIsSuccess(true);
         reset();
       }
-
-      console.log(data, 'data');
     } catch {
       setError(true);
     }

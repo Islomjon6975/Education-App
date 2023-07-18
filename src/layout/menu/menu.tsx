@@ -114,7 +114,6 @@ const Menu = (): JSX.Element => {
             className={cn(styles.thirdLevel, {
               [styles.thirdLevelActive]: `/${route}/${p._id}` === router.asPath,
             })}
-            onClick={() => console.log(`/${route}/${p._id}`)}
           >
             {p.title}
           </Link>
