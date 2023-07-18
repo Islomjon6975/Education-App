@@ -7,6 +7,7 @@ const Button = ({
   appearance,
   arrow = 'none',
   children,
+  size,
   className,
   ...props
 }: ButtonProps): JSX.Element => {
@@ -15,6 +16,11 @@ const Button = ({
       className={cn(styles.button, className, {
         [styles.primary]: appearance === 'primary',
         [styles.ghost]: appearance === 'ghost',
+        [styles.success]: appearance === 'success',
+        [styles.failure]: appearance === 'failure',
+        [styles.s]: size === 's',
+        [styles.m]: size === 'm',
+        [styles.l]: size === 'l',
       })}
       {...props}
     >

@@ -1,0 +1,41 @@
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE could not resolve
+npm ERR! 
+npm ERR! While resolving: react-event-timeline@1.6.3
+npm ERR! Found: react@18.2.0
+npm ERR! node_modules/react
+npm ERR!   peer react@">=16.8.0" from @emotion/use-insertion-effect-with-fallbacks@1.0.1
+npm ERR!   node_modules/@emotion/use-insertion-effect-with-fallbacks
+npm ERR!     @emotion/use-insertion-effect-with-fallbacks@"^1.0.0" from @storybook/theming@7.0.27
+npm ERR!     node_modules/@storybook/theming
+npm ERR!       @storybook/theming@"7.0.27" from @storybook/builder-webpack5@7.0.27
+npm ERR!       node_modules/@storybook/builder-webpack5
+npm ERR!         @storybook/builder-webpack5@"7.0.27" from @storybook/nextjs@7.0.27
+npm ERR!         node_modules/@storybook/nextjs
+npm ERR!       10 more (@storybook/manager-api, @storybook/addon-actions, ...)
+npm ERR!   peer react@"^18.0.0" from framer-motion@9.1.7
+npm ERR!   node_modules/framer-motion
+npm ERR!     framer-motion@"^9.0.1" from the root project
+npm ERR!   36 more (next, react-dom, react-hook-form, react-icons, ...)
+npm ERR! 
+npm ERR! Could not resolve dependency:
+npm ERR! peer react@">= 0.14.0 < 17.0.0-0" from react-event-timeline@1.6.3
+npm ERR! node_modules/react-event-timeline
+npm ERR!   react-event-timeline@"^1.6.3" from the root project
+npm ERR! 
+npm ERR! Conflicting peer dependency: react@16.14.0
+npm ERR! node_modules/react
+npm ERR!   peer react@">= 0.14.0 < 17.0.0-0" from react-event-timeline@1.6.3
+npm ERR!   node_modules/react-event-timeline
+npm ERR!     react-event-timeline@"^1.6.3" from the root project
+npm ERR! 
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR! 
+npm ERR! 
+npm ERR! For a full report see:
+npm ERR! C:\Users\MSI Computer\AppData\Local\npm-cache\_logs\2023-07-17T00_57_14_768Z-eresolve-report.txt
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\MSI Computer\AppData\Local\npm-cache\_logs\2023-07-17T00_57_14_768Z-debug-0.log

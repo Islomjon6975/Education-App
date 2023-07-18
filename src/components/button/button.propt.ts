@@ -5,7 +5,8 @@ export interface ButtonProps
     ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  appearance: 'primary' | 'ghost';
+  appearance: 'primary' | 'ghost' | 'failure' | 'success';
+  size?: 's' | 'm' | 'l';
   children: ReactNode;
   arrow?: 'right' | 'down' | 'none';
 }
