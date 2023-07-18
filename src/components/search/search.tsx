@@ -5,23 +5,34 @@ import styles from './search.module.css';
 import Input from '../input/input';
 import Button from '../button/button';
 import SearchIcon from './search.svg';
-import { useState } from 'react';
+import { ChangeEvent, useContext, useState } from 'react';
 import { useRouter } from 'next/router';
+import { AppContext } from '../../context/app.context';
+import { PageItem } from '../../interfaces/menu.interface';
 
 const Search = ({ className, ...props }: SearchProps): JSX.Element => {
+  const { menu } = useContext(AppContext);
   const [search, setSearch] = useState('');
+  const [response, setResponse] = useState<PageItem[]>([]);
+
   const router = useRouter();
 
-  const searchHandler = () => {
-    if (!search) {
-      return;
-    }
-    router.push({ pathname: '/search', query: { q: search } });
+  const searchHandler = (id: string) => {
+    router.push(`/${router.query?.type || 'courses'}/${id}`);
+    setResponse([]);
+    setSearch('');
   };
 
-  const onKeyDetact = (e) => {
-    if (e.key === 'Enter' && e.type === 'keydown') {
-      searchHandler();
+  const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const allPages = menu.map((c) => c.pages).flat();
+    const { value } = e.target;
+    setSearch(value);
+    const response = allPages.filter(
+      (c) => c.title.toLowerCase().indexOf(value.toLowerCase()) !== -1
+    );
+    setResponse(response);
+    if (value.length == 0) {
+      setResponse([]);
     }
   };
 
@@ -30,16 +41,21 @@ const Search = ({ className, ...props }: SearchProps): JSX.Element => {
       <Input
         placeholder="Search..."
         className={styles.input}
-        onChange={(e) => setSearch(e.target.value)}
-        onKeyDown={onKeyDetact}
+        value={search}
+        onChange={changeHandler}
       />
-      <Button
-        appearance="primary"
-        className={styles.button}
-        onClick={searchHandler}
-      >
+      <Button appearance="primary" className={styles.button}>
         <SearchIcon />
       </Button>
+      {response.length ? (
+        <div className={styles.searchResponse}>
+          {response.map((c) => (
+            <div onClick={() => searchHandler(c._id)} key={c._id}>
+              {c.title}
+            </div>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 };
