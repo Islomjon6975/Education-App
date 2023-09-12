@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from './navbar.module.css';
-import Logo from '../logo.svg';
+import Logo from '../logo2.svg';
 import { navLinks } from '../../helpers/constants';
 import { IconButton, Search, Text } from '../../components';
 import { motion } from 'framer-motion';
@@ -29,7 +29,10 @@ const Navbar = () => {
     <div className={styles.navbar}>
       <nav className={styles.nav}>
         <Link href={'/'}>
-          <Logo className={styles.logo} />
+          <Logo
+            className={styles.logo}
+            style={{ width: '40px', height: '40px' }}
+          />
         </Link>
         <div className={styles.navigation}>
           {navLinks.map((nav, idx) => (
