@@ -33,7 +33,7 @@ const ReviewForm = ({
     setError(false);
 
     try {
-      const { data, status } = await axios.post<IReviewResponse>(
+      const { status } = await axios.post<IReviewResponse>(
         `${process.env.NEXT_PUBLIC_API}/posts`,
         { ...formData, productId: productid }
       );

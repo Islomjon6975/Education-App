@@ -1,5 +1,3 @@
-import cn from 'classnames';
-
 import { ReviewProps } from './review.props';
 import styles from './review.module.css';
 import UserIcon from './user.svg';

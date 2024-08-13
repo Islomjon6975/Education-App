@@ -31,7 +31,6 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async ({
   query,
 }) => {
   const { type, slug } = query;
-  const firstCategory = 0;
 
   if (!slug) {
     return { notFound: true };
